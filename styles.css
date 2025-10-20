@@ -1,5 +1,6 @@
 /* import of universal default stylings in the case a users browser does not support the style presented below */
 @import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800');
 
 
 body{
@@ -9,15 +10,17 @@ body{
 
     height: 100vh;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Baloo 2", cursive;
     background-color: cornsilk;
 }
 h1 {
+    
     font-size: 36px;
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
 }
+
 p {
     font-size: 18px;
     color: #666;
@@ -48,11 +51,7 @@ p {
 
     margin-bottom: 1.5em;
 }
-.button {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5em;
-}
+
 button{
     background-color: #4CAF50;
     border: none;
@@ -60,6 +59,7 @@ button{
     padding: 30px 60px;
     border-radius: 10px;
     cursor: pointer;
+    font-family: "Baloo 2", cursive;
     font-size: 24px;
 
 } 
@@ -67,4 +67,12 @@ button:hover{
     background-color: #45a049;
     transform: scale(1.05);
 
+}
+
+/* snippets for later use */
+
+/* Make a specific section speak-out numbers as individual digits */
+/*
+.serial-number {
+  speak-as: digits;
 }
