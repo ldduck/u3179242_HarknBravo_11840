@@ -6,6 +6,7 @@
 const listenButton = document.getElementById('listenButton');
 const statusState = document.getElementById('status');
 const userText = document.getElementById('userOutput');
+const globalLoader = document.getElementById('globalLoader');
 
 // Check if the browser supports Speech Recognition
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -18,6 +19,7 @@ if (SpeechRecognition) {
 
     recognition.onstart = () => {
         statusState.textContent = "Listening...";
+        if (globalLoader) globalLoader.classList.remove('hidden');
     };
 
     // When the browser recognises something
@@ -26,15 +28,16 @@ if (SpeechRecognition) {
         userText.textContent = `You said: "${spokenText}"`;
 
         // For now, it gives a simple, hard-coded reply
-        speak("I heard you say " + spokenText + ". Damn, that's crazy. Why would you say that?");
+        speak("I heard you say " + spokenText + ". Damn, that's crazy.");
     };
 
     recognition.onend = () => {
         statusState.textContent = "Status: Idle";
+        if (globalLoader) globalLoader.classList.add('hidden');
     };
 
 } else {
-    alert("Sorry, your browser does not support Speech Recognition.");
+    alert("Sorry, your browser does not support Speech Recognition!");
 }
 
 // Function to make the browser speak
@@ -42,3 +45,4 @@ function speak(text) {
     const utterance = new SpeechSynthesisUtterance(text);
     window.speechSynthesis.speak(utterance);
 }
+

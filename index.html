@@ -16,21 +16,36 @@
             
         </div>
 
+        <!-- <div id="harknFace">
+            <h1>I am HARKNbravo</h1>
+            <p>How may I assist you?</p>
+        </div> -->
+
         <div class="buttonContainer">
-            <button id="listenButton">Press me!</button>
+            <button id="listenButton">Hey, I'm HarknBravo</button>
 
         </div>
 
         <div class="statusContainer">
             <p id="status">Status: Idle</p>
-            
+            <!-- loader is hidden until listening starts -->
+            <div id="globalLoader" class="loader hidden" aria-hidden="true"></div>
         </div>
 
         <div class="outputContainer">
-            <p id="userOutput">I heard: </p>
+            <p hidden id="userOutput"></p>
 
         </div>
     </div>
 
+    <div class="tutorialContainer">
+        <div id="tutorialPanelMode" class="tutorialPanel">
+            <h1>Tutorial Panel</h1>
+            <p>This is a simple voice recognition demo using the Web Speech API.</p>
+            <p>Press the button and start speaking!</p>
+        </div>
+
+        <button class="openTutorial" onclick="openPanel()">Show Tutorial</button>
+    </div>
 </body>
 </html>
