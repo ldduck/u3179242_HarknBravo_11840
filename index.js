@@ -46,3 +46,11 @@ function speak(text) {
     window.speechSynthesis.speak(utterance);
 }
 
+// Tutorial panel functions
+
+function openPanel() {
+    document.getElementById('tutorialPanelMode').style.width = '300px';
+}
+function closePanel() {
+    document.getElementById('tutorialPanelMode').style.width = '0px';
+}
