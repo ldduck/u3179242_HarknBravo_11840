@@ -49,8 +49,9 @@ function speak(text) {
 // Tutorial panel functions
 
 function openPanel() {
-    document.getElementById('tutorialPanelMode').style.width = '300px';
+    const panel = document.getElementById('tutorialPanelMode');
+    panel.classList.toggle('open');
 }
 function closePanel() {
-    document.getElementById('tutorialPanelMode').style.width = '0px';
+    document.getElementById('tutorialPanelMode').classList.remove('open');
 }
