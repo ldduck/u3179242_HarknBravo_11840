@@ -71,11 +71,13 @@ p {
   transform: translateY(0px);
   animation: float 5s ease-in-out infinite;
   cursor: pointer;  
-  
+
+  height: 200px;
+  width: 400px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 25px;
   letter-spacing: 3px;
   
   color: var(--color-brown);
