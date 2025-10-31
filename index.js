@@ -1,4 +1,3 @@
-
 const listenButton = document.getElementById('listenButton');
 const statusState = document.getElementById('status');
 const userText = document.getElementById('userOutput');
