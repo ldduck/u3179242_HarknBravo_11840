@@ -12,7 +12,7 @@ Originally this project was created with the intention of using an AI Agent to h
 - Voice Recognition: Users can interact with Harkn using voice commands.
 - Predefined Responses: Harkn provides predefined responses to certain keywords to 'perform' common queries and tasks.
 
-Predefined responses include:
+## Predefined responses include:
 - General Information: Weather updates, news, and other general queries.
 - ATM Transactions: Simulated ATM transactions such as balance inquiries and fund transfers.
 
