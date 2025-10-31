@@ -25,6 +25,7 @@ if (SpeechRecognition) {
         // Listens and responds to specific keywords. 
         speak();
 
+        // Keywords
         if (spokenText.includes("open tutorial") || spokenText.includes("show tutorial") || spokenText.includes("open the tutorial")) {
             openPanel(); 
             speak("Sure thing, it's open now!");
