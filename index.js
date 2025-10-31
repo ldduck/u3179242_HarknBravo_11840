@@ -22,23 +22,30 @@ if (SpeechRecognition) {
         if (speechIcon) speechIcon.classList.remove('hidden');
     };
 
-    // When the browser recognises something
+    // Core functionality to handle recognised speech
     recognition.onresult = (event) => {
         const spokenText = event.results[0][0].transcript;
-        userText.textContent = `You said: "${spokenText}"`;
+        userText.textContent = `'${spokenText}'`;
 
-        // For now, it gives a simple, hard-coded reply
-        speak("I heard you say " + spokenText);
+        // Listens and responds to specific keywords.
+        speak();
 
-        if (spokenText.includes("open tutorial") || spokenText.includes("show tutorial")) {
+        if (spokenText.includes("open tutorial") || spokenText.includes("show tutorial") || spokenText.includes("open the tutorial")) {
             openPanel(); 
             speak("Sure thing, it's open now!");
-        }
-        if (spokenText.includes("close tutorial") || spokenText.includes("hide tutorial")) {
+        } else if (spokenText.includes("close tutorial") || spokenText.includes("hide tutorial") || spokenText.includes("close the tutorial")) {
             closePanel();
             speak("Can do, I've closed it!");
         } else if (spokenText.includes("status")) {
-            speak("The tutorial is currently " + (document.getElementById('tutorialPanelMode').classList.contains('open') ? "open" : "closed") + ".");
+            speak("The tutorial is currently " + (document.getElementById('tutorialPanelMode').classList.contains('open') ? "open" : "closed"));
+        } else if (spokenText.includes("hello")) {
+            speak("Hello! How can I assist you today?");
+        } else if (spokenText.includes("what can you do") || spokenText.includes("what are your capabilities") || spokenText.includes("what do you do") || spokenText.includes("help")) {
+            speak("I can assist you with a variety of tasks, including answering questions, providing information, and helping you navigate this interface.");
+        } else if (spokenText.includes("thank you") || spokenText.includes("thanks")) {
+            speak("You're welcome! If you have any more questions, feel free to ask.");
+        } else if (spokenText.includes ("weather") || spokenText.includes ("forecast") || spokenText.includes ("temperature")) {
+            speak("If I could find that for you, I would say: I can provide you with the current weather information for your location. Just let me know the city or area you're interested in.");
         }
 
 
@@ -48,8 +55,6 @@ if (SpeechRecognition) {
         statusState.textContent = "Status: Idle";
         if (speechIcon) speechIcon.classList.add('hidden');
     };
-} else {
-    alert("Sorry, your browser does not support Speech Recognition!");
 }
 
 // Function to make the browser speak
@@ -58,15 +63,10 @@ function speak(text) {
     window.speechSynthesis.speak(utterance);
 }
 
-// Core event listener that listens for the user's voice input and triggers the relevant functions.
-
-
 
 // Tutorial panel functions
-
 function openPanel() {
-    const panel = document.getElementById('tutorialPanelMode');
-    panel.classList.toggle('open');
+    document.getElementById('tutorialPanelMode').classList.add('open');
 }
 function closePanel() {
     document.getElementById('tutorialPanelMode').classList.remove('open');
